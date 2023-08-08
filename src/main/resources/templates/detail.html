@@ -1,0 +1,25 @@
+<html th:replace="~{layout :: layout(${title}, ~{::main})}">
+    <head></head>
+    <body>
+
+        <main>
+            <div class="container container-lg my-5">
+                <div class="row">
+                    <div class="col">
+                        <h1 th:text="${memo.title}"></h1>
+                        <p th:text="${memo.content}"></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <a th:href="@{/update/} + ${memo.id}">update</a>
+                        <form method="post" th:action="@{/delete/} + ${memo.id}">
+                            <button type="submit" class="btn btn-danger">delete</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+    </body>
+</html>
